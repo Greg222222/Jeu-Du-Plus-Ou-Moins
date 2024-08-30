@@ -22,9 +22,9 @@ public class Main {
         Scanner s = new Scanner(System.in);
         // Boucle tant que l'utilisateur n'a pas deviné
         while (guess != nombreAleatoire) {
-            // On vérifie que l'utilisateur a bien rentré un entier
+            // On vérifie que l'utilisateur a bien rentré un entier compris entre min et max
             try {
-                System.out.println("Entrez votre guess");
+                System.out.println("Entrez votre guess entre 0 et 1500");
                 guess = s.nextInt();
                 // On incrémente le nombre d'essais
                 i++;
@@ -38,7 +38,7 @@ public class Main {
             }
             // S'il n'a pas rentré un entier, on le lui fait savoir
             catch (InputMismatchException e) {
-               System.out.println("Vous n'avez pas entré un nombre");
+               System.out.println("Vous n'avez pas entré un nombre valide");
                // Et on le fait recommencer
                s.next(); // Consomme l'entrée incorrecte
             }
@@ -46,6 +46,8 @@ public class Main {
         {
             System.out.println("Vous avez proposé " + guess + " ET C'EST TOUT PILE !! Réussi en " + i + " essais");
         }
+        // Fermeture du scanner
+        s.close();
 
     }
 
